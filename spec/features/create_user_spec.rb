@@ -9,6 +9,11 @@ feature "guest user creates an account" do
     expect(page).not_to have_content "Success!"
   end
   scenario "successfully creates a new user account" do
-    #your code here
+    visit "/users"
+    fill_in "first_name", with: "Tommy"
+    fill_in "last_name", with: "Pickles"
+    fill_in "email", with: "tommy@gmail.com"
+    click_button "Create"
+    expect(page).to have_content "Success!"
   end
 end
